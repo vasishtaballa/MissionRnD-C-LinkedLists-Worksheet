@@ -21,6 +21,36 @@ struct node {
 	struct node *next;
 };
 
-void sll_012_sort(struct node *head){
-	
+void sll_012_sort(struct node *head)
+{
+	struct node *p = head, *q = head;
+	int count1 = 0, count2 = 0, count0 = 0;
+	while (head != NULL)
+	{
+		if (head->data == 0)
+			count0++;
+		else if (head->data == 1)
+			count1++;
+		else
+			count2++;
+		head = head->next;
+	}
+	while (count0 > 0)
+	{
+		q->data = 0;
+		count0--;
+		q = q->next;
+	}
+	while (count1 > 0)
+	{
+		q->data = 1;
+		count1--;
+		q = q->next;
+	}
+	while (count2 > 0)
+	{
+		q->data = 2;
+		count2--;
+		q = q->next;
+	}
 }
